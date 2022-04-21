@@ -1,5 +1,6 @@
 from pytube import YouTube
 from json import load
+from time import perf_counter
 
 
 #planning to use this in the future
@@ -9,6 +10,13 @@ def check_playlist(url: str) -> bool:
         return True
     return False
 """
+
+
+def exec_time(func, *args, **kwargs) -> float:
+    start = perf_counter()
+    func(*args, **kwargs)
+    end = perf_counter()
+    print(f"Execution time: {end - start}")
 
 
 def load_json(path: str) -> dict:
@@ -36,3 +44,4 @@ MODES = {
     "Highest resolution": lambda streams: streams.get_highest_resolution(),
     "Audio only": lambda streams: streams.get_audio_only()
 }
+DEFAULT = {"PATH": "1", "MODE": "0"}
