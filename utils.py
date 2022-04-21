@@ -16,7 +16,7 @@ def exec_time(func, *args, **kwargs) -> float:
     start = perf_counter()
     func(*args, **kwargs)
     end = perf_counter()
-    print(f"Execution time: {end - start}")
+    return end - start
 
 
 def load_json(path: str) -> dict:
